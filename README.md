@@ -1,6 +1,6 @@
-# Telus navigation use cases
+# Navigation use cases
 
-Currently, Telus' wifi app is using the [conductor](https://github.com/bluelinelabs/Conductor) library to handle every thing related to the navigation. This library gives developers the ability to add and remove entries to the backstack as needed, given the app's navigation a lot of flexibility.
+Currently, the wifi app is using the [conductor](https://github.com/bluelinelabs/Conductor) library to handle every thing related to the navigation. This library gives developers the ability to add and remove entries to the backstack as needed, given the app's navigation a lot of flexibility.
 
 This project was created with the intent of replicate all the possible navigation use cases, but using android's own [navigation library](https://developer.android.com/guide/navigation).
 
