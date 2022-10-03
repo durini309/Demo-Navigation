@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/firstFlowAFragment">
+
+    <fragment
+        android:id="@+id/firstFlowAFragment"
+        android:name="com.jcd.telusnavigation.first_flow.FirstFlowAFragment"
+        android:label="FirstFlowAFragment"
+        tools:layout="@layout/fragment_first_flow_a"
+        >
+        <!-- Navigates to B, leaving A on back stack -->
+        <action
+            android:id="@+id/action_firstFlowAFragment_to_firstFlowBFragment"
+            app:destination="@id/firstFlowBFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFlowBFragment"
+        android:name="com.jcd.telusnavigation.first_flow.FirstFlowBFragment"
+        android:label="FirstFlowBFragment"
+        tools:layout="@layout/fragment_first_flow_b"
+        >
+        <!-- Navigates to C, leaving B on back stack -->
+        <action
+            android:id="@+id/action_firstFlowBFragment_to_firstFlowCFragment"
+            app:destination="@id/firstFlowCFragment" />
+        <argument
+            android:name="from_notification"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFlowCFragment"
+        android:name="com.jcd.telusnavigation.first_flow.FirstFlowCFragment"
+        android:label="FirstFlowCFragment"
+        tools:layout="@layout/fragment_first_flow_c"
+        >
+        <!-- Navigates to B, removing C from back stack -->
+        <action
+            android:id="@+id/action_firstFlowCFragment_backTo_firstFlowBFragment"
+            app:destination="@id/firstFlowBFragment"
+            app:popUpTo="@id/firstFlowCFragment"
+            app:popUpToInclusive="true"
+            />
+        <!-- Navigates to D, leaving C on back stack -->
+        <action
+            android:id="@+id/action_firstFlowCFragment_to_firstFlowDFragment"
+            app:destination="@id/firstFlowDFragment" />
+        <argument
+            android:name="from_notification"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstFlowDFragment"
+        android:name="com.jcd.telusnavigation.first_flow.FirstFlowDFragment"
+        android:label="fragment_first_flow_d"
+        tools:layout="@layout/fragment_first_flow_d" >
+        <!-- This is used as deeplink to navigate to fragment D, if "from_notification"
+             is true, then it will navigate back to C -->
+        <deepLink app:uri="durini://telusnavigation.com/firstFlow/{from_notification}" />
+        <!-- This action navigates to C, removing D from back stack -->
+        <action
+            android:id="@+id/action_firstFlowDFragment_backTo_firstFlowCFragment"
+            app:destination="@id/firstFlowCFragment"
+            app:popUpTo="@id/firstFlowDFragment"
+            app:popUpToInclusive="true"
+        />
+        <!-- This action navigates back to A. The backs won't have any fragment (as expected) -->
+        <action
+            android:id="@+id/action_firstFlowDFragment_to_firstFlowAFragment"
+            app:destination="@id/firstFlowAFragment"
+            app:popUpTo="@id/firstFlowAFragment"
+            app:popUpToInclusive="true"
+            />
+        <argument
+            android:name="from_notification"
+            app:argType="boolean"
+            android:defaultValue="false" />
+
+    </fragment>
+</navigation>

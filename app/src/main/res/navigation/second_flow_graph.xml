@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/second_flow_graph"
+    app:startDestination="@id/secondFlowAFragment">
+
+    <fragment
+        android:id="@+id/secondFlowAFragment"
+        android:name="com.jcd.telusnavigation.second_flow.SecondFlowAFragment"
+        android:label="fragment_second_flow_a"
+        tools:layout="@layout/fragment_second_flow_a" >
+        <action
+            android:id="@+id/action_secondFlowAFragment_to_secondFlowBFragment"
+            app:destination="@id/secondFlowBFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFlowBFragment"
+        android:name="com.jcd.telusnavigation.second_flow.SecondFlowBFragment"
+        android:label="fragment_second_flow_b"
+        tools:layout="@layout/fragment_second_flow_b" />
+</navigation>
