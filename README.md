@@ -13,10 +13,10 @@ Pushing multiple fragments in one shot so the user sees the one on top only but 
 
 #### **Solution**
 This can't be handled by programatically pushing fragments into the backstack, but there's another way to achieve this. In this project there are 4 different fragments: `FragmentA`, `FragmentB`, `FragmentC` and `FragmentD`. All these fragments have the following navigation flow:
-<figure>
+<p align = "center">
     <img src="https://user-images.githubusercontent.com/13813905/193364060-51625efa-c624-40d4-8d4c-64bb2fcd8b27.png" />
-    <figcaption align = "center"><b>Fig.1 - Basic initial navigation</b></figcaption>
-</figure>
+</p>
+<p align = "center">Fig.1 - Basic initial navigation</p>
 
 The flow is pretty straightforward: we go from `A` all the way to `D` and, if the user clicks on the **Back to A** button placed on `D`, then we get back to `A` without keeping `B` and `C` on the backstack.
 
@@ -65,10 +65,10 @@ The reason this callback is not needed on that fragment is because, after reachi
 
 The final navigation graph ends up like this: 
 
-<figure>
+<p align = "center">
     <img src="https://user-images.githubusercontent.com/13813905/193365881-1ecb07e3-ee84-45ab-9a36-37ddfd750b27.png" />
-    <figcaption align = "center"><b>Fig.2 - Navigation with custom back actions</b></figcaption>
-</figure>
+</p>
+<p align = "center">Fig.2 - Navigation with custom back actions</p>
 
 ## Use cases
 
@@ -145,18 +145,17 @@ Open a new activity on top of an already existing stack of the current activity 
 #### **Solution**
 To replicate this behaviour, you can navigate through the FirstFlow. After reaching fragment `D`, you'll see there's a "Second Flow" button at the bottom of the screen:
 
-
-<figure align = "center">
-    <img src="https://user-images.githubusercontent.com/13813905/193650893-107f6196-ef9a-4db7-a227-0733524cc5a3.png" width="300" />
-    <figcaption><b>Fig.3 - FirstFlow's Fragment D</b></figcaption>
-</figure>
+<p align = "center">
+    <img src="https://user-images.githubusercontent.com/13813905/193650893-107f6196-ef9a-4db7-a227-0733524cc5a3.png" width="300" />    
+</p>
+<p align = "center">Fig.3 - FirstFlow's Fragment D</p>
 
 This button will click a new Activity, `SecondFlowActivity`, that has their own nav graph. This is the first fragment you'll see: 
 
-<figure align = "center">
+<p align = "center">
     <img src="https://user-images.githubusercontent.com/13813905/193651627-a812c69e-24b9-4fb2-b92b-3e21d6985301.png" width="300" />
-    <figcaption><b>Fig.4 - SecondFlow's Fragment A</b></figcaption>
-</figure>
+</p>
+<p align = "center">Fig.4 - SecondFlow's Fragment A</p>
 
 If you press the "back" button on the emulator, then first flow's fragment `D` will be shown again, and the backstack will be the same as it was before opening `SecondFlowActivity`.
 
@@ -226,10 +225,12 @@ Fully comprehend the general behavior of fragment's lifecycle based on the solut
 #### **Explanation**
 The lifecycle of a fragment is as follows:
 
-<figure align = "center">
+<p align = "center">
     <img src="https://mohamedmoanes.files.wordpress.com/2018/07/1495079249_capture.png"/>
-    <figcaption><b>Fig.5 - Fragment's lifecycle. Taken from <a href="https://mohamedmoanes.wordpress.com/2018/07/29/fragment-lifecycle/" target="_blank">this article</a></b></figcaption>
-</figure>
+</p>
+<p align = "center">
+    Fig.5 - Fragment's lifecycle. Taken from <a href="https://mohamedmoanes.wordpress.com/2018/07/29/fragment-lifecycle/" target="_blank">this article</a>
+</p>
 
 With Jetpack Navigation library, using our First Flow as reference, when our fragment `A` is shown, these events are triggered:
 ```
